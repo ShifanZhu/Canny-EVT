@@ -551,13 +551,13 @@ bool CamBasedProblemLM::isValidPatch(Eigen::Vector2d &patchCentreCoord, Eigen::M
     if (patchCentreCoord(0) < (wx - 1) / 2 || patchCentreCoord(0) > mEventCamera->getWidth() - (wx - 1) / 2 - 1 ||
         patchCentreCoord(1) < (wy - 1) / 2 || patchCentreCoord(1) > mEventCamera->getHeight() - (wy - 1) / 2 - 1)
         return false;
-    if (mask(patchCentreCoord(1) - (wy - 1) / 2, patchCentreCoord(0) - (wx - 1) / 2) < 125)
+    if (mask(int(patchCentreCoord(1) - (wy - 1) / 2), int(patchCentreCoord(0) - (wx - 1) / 2)) < 125)
         return false;
-    if (mask(patchCentreCoord(1) - (wy - 1) / 2, patchCentreCoord(0) + (wx - 1) / 2) < 125)
+    if (mask(int(patchCentreCoord(1) - (wy - 1) / 2), int(patchCentreCoord(0) + (wx - 1) / 2)) < 125)
         return false;
-    if (mask(patchCentreCoord(1) + (wy - 1) / 2, patchCentreCoord(0) - (wx - 1) / 2) < 125)
+    if (mask(int(patchCentreCoord(1) + (wy - 1) / 2), int(patchCentreCoord(0) - (wx - 1) / 2)) < 125)
         return false;
-    if (mask(patchCentreCoord(1) + (wy - 1) / 2, patchCentreCoord(0) + (wx - 1) / 2) < 125)
+    if (mask(int(patchCentreCoord(1) + (wy - 1) / 2), int(patchCentreCoord(0) + (wx - 1) / 2)) < 125)
         return false;
     return true;
 }
